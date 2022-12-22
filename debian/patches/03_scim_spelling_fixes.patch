@@ -1,0 +1,38 @@
+Description: Fix some spelling errors in scim's source files.
+Forwarded: https://github.com/scim-im/scim/issues/25
+Author: Hugh McMaster <hugh.mcmaster@outlook.com>
+Last-Update: 2018-06-17
+
+--- scim-1.4.18.orig/extras/immodules/agent/scim-bridge-agent.cpp
++++ scim-1.4.18/extras/immodules/agent/scim-bridge-agent.cpp
+@@ -249,16 +249,16 @@ retval_t ScimBridgeAgentImpl::run_event_
+             } else {
+                 if (socket_fd > max_fd) max_fd = socket_fd;
+                 if (triggers & SCIM_BRIDGE_AGENT_EVENT_READ) {
+-                    scim_bridge_pdebugln (1, "FD (%d) is registred as a reading socket", socket_fd);
++                    scim_bridge_pdebugln (1, "FD (%d) is registered as a reading socket", socket_fd);
+                     FD_SET (socket_fd, &read_set);
+                 }
+                 if (triggers & SCIM_BRIDGE_AGENT_EVENT_WRITE) {
+                     FD_SET (socket_fd, &write_set);
+-                    scim_bridge_pdebugln (1, "FD (%d) is registred as a writing socket", socket_fd);
++                    scim_bridge_pdebugln (1, "FD (%d) is registered as a writing socket", socket_fd);
+                 }
+                 if (triggers & SCIM_BRIDGE_AGENT_EVENT_ERROR) {
+                     FD_SET (socket_fd, &error_set);
+-                    scim_bridge_pdebugln (1, "FD (%d) is registred as a error socket", socket_fd);
++                    scim_bridge_pdebugln (1, "FD (%d) is registered as a error socket", socket_fd);
+                 }
+             }
+             ++i;
+--- scim-1.4.18.orig/extras/immodules/client-common/scim-bridge-client.c
++++ scim-1.4.18/extras/immodules/client-common/scim-bridge-client.c
+@@ -1569,7 +1569,7 @@ retval_t scim_bridge_client_reset_imcont
+     }
+ 
+     if (pending_response.status == RESPONSE_SUCCEEDED) {
+-        scim_bridge_pdebugln (6, "reseted: id = %d", id);
++        scim_bridge_pdebugln (6, "reset: id = %d", id);
+         pending_response.header = NULL;
+         pending_response.status = RESPONSE_DONE;
+         return RETVAL_SUCCEEDED;
